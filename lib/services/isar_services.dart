@@ -38,9 +38,21 @@ class IsarService {
     return await isar.todoModels.where().findAll();
   }
 
-  /// save todo to isar database
+  /// save todos to isar database
   Future<int> saveTodos(TodoModel newTodo) async {
     final isar = await db;
     return isar.writeTxnSync<int>(() => isar.todoModels.putSync(newTodo));
+  }
+
+  /// update todos to isar database
+  Future<int> updateTodo(TodoModel newTodo) async {
+    final isar = await db;
+    return isar.writeTxnSync<int>(() => isar.todoModels.putSync(newTodo));
+  }
+
+  /// delete todos to isar database
+  Future<bool> deleteTodo(TodoModel newTodo) async {
+    final isar = await db;
+    return await isar.writeTxn(() => isar.todoModels.delete(newTodo.id));
   }
 }
