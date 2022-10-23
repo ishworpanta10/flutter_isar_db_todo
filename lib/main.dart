@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/homepage.dart';
+import 'screens/todo_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: const TodoListPage(),
     );
   }
 }
